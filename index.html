@@ -48,8 +48,8 @@
     <!-- Egg Evolution Section -->
     <section id="egg" class="egg-section">
       <div class="egg-sticky">
-        <div class="egg-stage-label" id="egg-stage-label">Phase 1</div>
-        <canvas id="egg-canvas"></canvas>
+        <div class="egg-stage-label" id="egg-stage-label">Dormant</div>
+        <div id="three-container"></div>
         <div class="egg-progress-bar">
           <div class="egg-progress-fill" id="egg-progress-fill"></div>
         </div>
@@ -74,6 +74,15 @@
 
   </div>
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
   <script src="main.js"></script>
+  <script type="module" src="egg.js"></script>
 </body>
 </html>

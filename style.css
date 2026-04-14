@@ -26,7 +26,7 @@ a, button, [role="button"] {
   cursor: none;
 }
 
-/* ─── CROSSHAIR ──────────────────────────────── */
+/* ─── CROSSHAIR ───────────────────────────────────────────── */
 #crosshair-h,
 #crosshair-v {
   position: fixed;
@@ -59,7 +59,7 @@ body.cursor-active #crosshair-v {
   opacity: 1;
 }
 
-/* ─── LOADER ─────────────────────────────────── */
+/* ─── LOADER ──────────────────────────────────────────────── */
 #loader {
   position: fixed;
   inset: 0;
@@ -127,7 +127,7 @@ body.cursor-active #crosshair-v {
   color: var(--muted);
 }
 
-/* ─── HIDDEN ─────────────────────────────────── */
+/* ─── HIDDEN ──────────────────────────────────────────────── */
 .hidden {
   opacity: 0;
   visibility: hidden;
@@ -139,7 +139,7 @@ body.cursor-active #crosshair-v {
   visibility: visible;
 }
 
-/* ─── NAV ────────────────────────────────────── */
+/* ─── NAV ─────────────────────────────────────────────────── */
 nav {
   position: fixed;
   top: 0;
@@ -181,7 +181,7 @@ nav {
   color: var(--accent);
 }
 
-/* ─── HERO ───────────────────────────────────── */
+/* ─── HERO ────────────────────────────────────────────────── */
 .hero {
   height: 100vh;
   display: flex;
@@ -224,7 +224,7 @@ nav {
   50% { opacity: 1; }
 }
 
-/* ─── EGG SECTION ────────────────────────────── */
+/* ─── EGG SECTION ─────────────────────────────────────────── */
 .egg-section {
   height: 500vh;
   position: relative;
@@ -241,22 +241,29 @@ nav {
   overflow: hidden;
 }
 
-#egg-canvas {
-  width: min(60vw, 60vh);
-  height: min(60vw, 60vh);
-  display: block;
-  filter: drop-shadow(0 0 40px rgba(255,255,255,0.05));
+#three-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#three-container canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .egg-stage-label {
   position: absolute;
-  top: 50%;
+  top: 40px;
   left: 50%;
-  transform: translate(-50%, calc(-50% - min(32vw, 32vh) - 24px));
+  transform: translateX(-50%);
   font-size: 0.65rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--muted);
+  z-index: 10;
   transition: opacity 0.4s ease;
 }
 
@@ -268,6 +275,7 @@ nav {
   width: 200px;
   height: 1px;
   background: #1c1c1c;
+  z-index: 10;
 }
 
 .egg-progress-fill {
@@ -277,7 +285,7 @@ nav {
   transition: width 0.1s linear;
 }
 
-/* ─── SECTIONS ───────────────────────────────── */
+/* ─── SECTIONS ────────────────────────────────────────────── */
 .section {
   min-height: 100vh;
   display: flex;
@@ -318,22 +326,10 @@ nav {
   border-color: var(--accent);
 }
 
-/* ─── RESPONSIVE ─────────────────────────────── */
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  nav {
-    padding: 20px 24px;
-  }
-  .nav-links {
-    gap: 20px;
-  }
-  .hero-title {
-    font-size: clamp(3rem, 20vw, 8rem);
-  }
-  .section {
-    padding: 80px 24px;
-  }
-  #egg-canvas {
-    width: 80vw;
-    height: 80vw;
-  }
+  nav { padding: 20px 24px; }
+  .nav-links { gap: 20px; }
+  .hero-title { font-size: clamp(3rem, 20vw, 8rem); }
+  .section { padding: 80px 24px; }
 }
