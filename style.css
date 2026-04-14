@@ -1,0 +1,228 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --text: #e8e8e8;
+  --muted: #555;
+  --accent: #ffffff;
+  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  overflow-x: hidden;
+}
+
+/* ─── LOADER ─────────────────────────────────── */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.loader-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.loader-phases {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.loader-counter {
+  font-size: 5rem;
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.loader-percent {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-left: 4px;
+  color: var(--muted);
+}
+
+.loader-headphones {
+  position: absolute;
+  bottom: 40px;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── HIDDEN ─────────────────────────────────── */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease 0.2s, visibility 0.8s ease 0.2s;
+}
+
+.hidden.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ─── NAV ────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 48px;
+  z-index: 100;
+  mix-blend-mode: difference;
+}
+
+.nav-logo {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* ─── HERO ───────────────────────────────────── */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.hero-title {
+  font-size: clamp(4rem, 15vw, 14rem);
+  font-weight: 100;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: var(--accent);
+}
+
+.hero-sub {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── SECTIONS ───────────────────────────────── */
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px;
+  border-top: 1px solid #1c1c1c;
+}
+
+.section-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.section-content h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.section-content p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.section-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--muted);
+  transition: border-color 0.3s;
+}
+
+.section-content a:hover {
+  border-color: var(--accent);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 768px) {
+  nav {
+    padding: 20px 24px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+  .hero-title {
+    font-size: clamp(3rem, 20vw, 8rem);
+  }
+  .section {
+    padding: 80px 24px;
+  }
+}
