@@ -152,6 +152,7 @@ nav {
   justify-content: center;
   text-align: center;
   padding: 0 24px;
+  position: relative;
 }
 
 .hero-title {
@@ -168,6 +169,74 @@ nav {
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ─── EGG SECTION ────────────────────────────── */
+.egg-section {
+  height: 500vh;
+  position: relative;
+}
+
+.egg-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#egg-canvas {
+  width: min(60vw, 60vh);
+  height: min(60vw, 60vh);
+  display: block;
+  filter: drop-shadow(0 0 40px rgba(255,255,255,0.05));
+}
+
+.egg-stage-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - min(32vw, 32vh) - 24px));
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: opacity 0.4s ease;
+}
+
+.egg-progress-bar {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: #1c1c1c;
+}
+
+.egg-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--muted);
+  transition: width 0.1s linear;
 }
 
 /* ─── SECTIONS ───────────────────────────────── */
@@ -224,5 +293,9 @@ nav {
   }
   .section {
     padding: 80px 24px;
+  }
+  #egg-canvas {
+    width: 80vw;
+    height: 80vw;
   }
 }
