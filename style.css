@@ -19,6 +19,44 @@ html, body {
   color: var(--text);
   font-family: var(--font);
   overflow-x: hidden;
+  cursor: none;
+}
+
+a, button, [role="button"] {
+  cursor: none;
+}
+
+/* ─── CROSSHAIR ──────────────────────────────── */
+#crosshair-h,
+#crosshair-v {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#crosshair-h {
+  width: 100vw;
+  height: 1px;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-50%);
+}
+
+#crosshair-v {
+  width: 1px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-50%);
+}
+
+body.cursor-active #crosshair-h,
+body.cursor-active #crosshair-v {
+  opacity: 1;
 }
 
 /* ─── LOADER ─────────────────────────────────── */
